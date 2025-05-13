@@ -15,15 +15,11 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: #e6e6e6;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
     }
     header {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 2rem;
+      text-align: center;
     }
     header img {
       max-width: 220px;
@@ -34,13 +30,33 @@
       font-size: 3em;
       margin-top: 1rem;
     }
-    p {
+    p.tagline {
       font-style: italic;
       font-size: 1.2em;
       color: #ccc;
     }
+    section {
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 10px;
+    }
+    section h2 {
+      color: #d4af37;
+      font-size: 2em;
+      margin-bottom: 1rem;
+    }
+    section p {
+      line-height: 1.6;
+      color: #ddd;
+    }
     .contact {
+      text-align: center;
       margin-top: 1rem;
+    }
+    .contact p {
+      margin: 0.5rem 0;
       font-size: 1em;
       color: #bbb;
     }
@@ -48,17 +64,31 @@
       color: #d4af37;
       text-decoration: none;
     }
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
+  <audio autoplay loop>
+    <source src="woods.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
   <header>
     <img src="logo.png" alt="Midnight Whispers Logo">
     <h1>Midnight Whispers</h1>
-    <p>Ghost stories, paranormal encounters, and whispers from the veil...</p>
-    <div class="contact">
-      <p>Contact: <a href="mailto:rose.midnightwhispers@gmail.com">rose.midnightwhispers@gmail.com</a></p>
-      <p>Submit Your Story: <a href="mailto:submissions.midnightwhisperspod@gmail.com">submissions.midnightwhisperspod@gmail.com</a></p>
-    </div>
+    <p class="tagline">Stories that linger long after midnight...</p>
   </header>
+
+  <section>
+    <h2>About Midnight Whispers</h2>
+    <p>In the shadow of midnight, when the world grows still and the veil between realms thins, you’ll hear them — whispers in the dark. Welcome to <strong>Midnight Whispers</strong>, a podcast where haunted tales, eerie encounters, and witchy folklore come alive. Hosted by <em>Rose Petals</em>, your voice from the other side, each episode takes you deeper into the unknown, echoing with truth, myth, and mystery.</p>
+    <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.</p>
+  </section>
+
+  <div class="contact">
+    <p>Contact: <a href="mailto:rose.midnightwhispers@gmail.com">rose.midnightwhispers@gmail.com</a></p>
+    <p>Submit Your Story: <a href="mailto:submissions.midnightwhisperspod@gmail.com">submissions.midnightwhisperspod@gmail.com</a></p>
+  </div>
 </body>
 </html>
