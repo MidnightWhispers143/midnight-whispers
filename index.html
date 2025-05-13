@@ -7,47 +7,46 @@
   <title>Midnight Whispers</title>
   <style>
     body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0d0d0d;
       background-image: url('midnight_whispers_bg.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #0d0d0d;
       color: #e6e6e6;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
     }
     header {
-      background-color: #1a1a1a;
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 2rem;
-      text-align: center;
     }
     header img {
-      max-width: 200px;
+      max-width: 220px;
+      border-radius: 12px;
     }
-    nav {
-      text-align: center;
+    h1 {
+      color: #d4af37;
+      font-size: 3em;
       margin-top: 1rem;
     }
-    nav a {
+    p {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    .contact {
+      margin-top: 1rem;
+      font-size: 1em;
+      color: #bbb;
+    }
+    .contact a {
       color: #d4af37;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2 {
-      color: #d4af37;
-    }
-    footer {
-      background-color: #1a1a1a;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #888;
     }
   </style>
 </head>
@@ -55,48 +54,11 @@
   <header>
     <img src="logo.png" alt="Midnight Whispers Logo">
     <h1>Midnight Whispers</h1>
-    <p><em>Ghost stories, paranormal encounters, and whispers from the veil...</em></p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#episodes">Episodes</a>
-      <a href="#submit">Submit Your Story</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <p>Ghost stories, paranormal encounters, and whispers from the veil...</p>
+    <div class="contact">
+      <p>Contact: <a href="mailto:rose.midnightwhispers@gmail.com">rose.midnightwhispers@gmail.com</a></p>
+      <p>Submit Your Story: <a href="mailto:submissions.midnightwhisperspod@gmail.com">submissions.midnightwhisperspod@gmail.com</a></p>
+    </div>
   </header>
-
-  <section id="about">
-    <h2>About Rose Petals</h2>
-    <p>Welcome, kindred spirit. I’m Rose Petals, your guide through the chilling tales and shadowed secrets whispered in the dark. Midnight Whispers was born from a lifelong obsession with the paranormal, and a passion for storytelling that haunts the soul. Each episode draws from real encounters, listener submissions, and folklore that dances on the edge of the veil.</p>
-  </section>
-
-  <section id="episodes">
-    <h2>Latest Episodes</h2>
-    <p>[Embed your latest podcast episode player here — from Spotify, Apple, etc.]</p>
-    <ul>
-      <li><strong>Episode 14:</strong> The Girl in the Attic</li>
-      <li><strong>Episode 13:</strong> Whispers Beneath the Floorboards</li>
-      <li><strong>Episode 12:</strong> The Witch’s Mirror</li>
-    </ul>
-  </section>
-
-  <section id="submit">
-    <h2>Send Us Your Story</h2>
-    <p>Have you experienced something strange, unexplained, or downright terrifying? Submit your true ghost story, urban legend, or witchy tale below. If it chills our spine—it might just be featured on the next episode.</p>
-    <p>Email: <a href="mailto:submissions@midnightwhisperspod.com">submissions@midnightwhisperspod.com</a></p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact & Socials</h2>
-    <p>Follow Midnight Whispers on social media for updates, behind-the-scenes, and sneak peeks:</p>
-    <ul>
-      <li>Instagram: @midnightwhisperspod</li>
-      <li>Twitter/X: @midnight_pod</li>
-      <li>Email: <a href="mailto:rose@midnightwhisperspod.com">rose@midnightwhisperspod.com</a></li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Midnight Whispers | Created by Rose Petals</p>
-  </footer>
 </body>
 </html>
