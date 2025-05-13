@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background: url('midnight_whispers_cleaned_final_bg.jpg') no-repeat center center fixed;
+      background: url('midnight_whispers_bg.jpg') no-repeat center center fixed;
       background-size: cover;
       overflow: hidden;
       color: #e6e6e6;
@@ -20,15 +20,16 @@
       left: 0;
       height: 100vh;
       width: 100%;
-      background: url('https://i.ibb.co/kMzvScj/fog-transparent.gif') repeat;
-      opacity: 0.3;
+      background: url('https://cdn.pixabay.com/photo/2020/04/26/12/20/fog-5092400_960_720.png') repeat;
+      opacity: 0.2;
       z-index: 1;
       pointer-events: none;
-      animation: drift 60s linear infinite;
+      animation: drift 90s linear infinite;
+      background-size: cover;
     }
     @keyframes drift {
       from { background-position: 0 0; }
-      to { background-position: 1000px 0; }
+      to { background-position: 2000px 0; }
     }
     .content {
       position: relative;
@@ -87,7 +88,7 @@
 </head>
 <body>
   <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="woods.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
   <div class="fog"></div>
