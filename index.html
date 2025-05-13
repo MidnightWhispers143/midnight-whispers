@@ -9,37 +9,53 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #0d0d0d;
-      background-image: url('midnight_whispers_bg.jpg');
+      background: url('midnight_whispers_cleaned_final_bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      overflow: hidden;
       color: #e6e6e6;
     }
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem;
-      text-align: center;
+    .fog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background: url('https://i.ibb.co/kMzvScj/fog-transparent.gif') repeat;
+      opacity: 0.3;
+      z-index: 1;
+      pointer-events: none;
+      animation: drift 60s linear infinite;
     }
-    header img {
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 0; }
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+    .content img {
       max-width: 220px;
       border-radius: 12px;
     }
-    h1 {
+    .content h1 {
       color: #d4af37;
       font-size: 3em;
-      margin-top: 1rem;
+      margin: 1rem 0 0.5rem;
     }
-    p.tagline {
+    .content p.tagline {
       font-style: italic;
       font-size: 1.2em;
       color: #ccc;
+      margin-bottom: 2rem;
     }
     section {
       background-color: rgba(0, 0, 0, 0.65);
       padding: 2rem;
       max-width: 800px;
-      margin: 2rem auto;
+      margin: 0 auto 2rem;
       border-radius: 10px;
     }
     section h2 {
@@ -71,14 +87,15 @@
 </head>
 <body>
   <audio autoplay loop>
-    <source src="woods.mp3" type="audio/mpeg">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <header>
+  <div class="fog"></div>
+  <div class="content">
     <img src="logo.png" alt="Midnight Whispers Logo">
     <h1>Midnight Whispers</h1>
     <p class="tagline">Stories that linger long after midnight...</p>
-  </header>
+  </div>
 
   <section>
     <h2>About Midnight Whispers</h2>
