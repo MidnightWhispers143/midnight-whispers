@@ -53,7 +53,7 @@
       margin-bottom: 2rem;
     }
     section {
-      background-color: rgba(0, 0, 0, 0.65);
+      background-color: rgba(0, 0, 0, 0.85);
       padding: 2rem;
       max-width: 800px;
       margin: 0 auto 2rem;
@@ -110,6 +110,12 @@
 </head>
 <body>
 
+<header style="background-color: rgba(0,0,0,0.7); padding: 1rem; text-align: center;">
+  <a href="#tarot" style="margin-right: 2rem; color: #d4af37; text-decoration: none; font-weight: bold;">Tarot</a>
+  <a href="contact.html" style="color: #d4af37; text-decoration: none; font-weight: bold;">Contact</a>
+</header>
+
+
 <audio id="bgAudio" loop>
   <source src="woods.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
@@ -157,7 +163,7 @@
     <p>Submit Your Story: <a href="mailto:submissions.midnightwhisperspod@gmail.com">submissions.midnightwhisperspod@gmail.com</a></p>
   </div>
 
-<section class="tarot" style="margin-top: 4rem;">
+<section class="tarot" id="tarot" style="margin-top: 4rem;">
   <h2 style="color:#d4af37;">Free Reading</h2>
   <p style="font-style: italic; color: #ccc;">Take a dance with fate, let the cards speak to you</p>
   <img src="card.png" alt="Tarot Card" class="tarot-img" id="tarotImage"
