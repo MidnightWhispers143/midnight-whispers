@@ -87,10 +87,12 @@
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="woods.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  
+<audio autoplay loop>
+  <source src="woods.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
   <div class="fog"></div>
   <div class="content">
     <img src="logo.png" alt="Midnight Whispers Logo">
@@ -108,5 +110,23 @@
     <p>Contact: <a href="mailto:rose.midnightwhispers@gmail.com">rose.midnightwhispers@gmail.com</a></p>
     <p>Submit Your Story: <a href="mailto:submissions.midnightwhisperspod@gmail.com">submissions.midnightwhisperspod@gmail.com</a></p>
   </div>
+
+<section class="tarot" style="margin-top: 4rem;">
+  <h2 style="color:#d4af37;">Free Reading</h2>
+  <p style="font-style: italic; color: #ccc;">Take a dance with fate, let the cards speak to you</p>
+  <img src="card.png" alt="Tarot Card" class="tarot-img" id="tarotImage" style="opacity:0; transition: opacity 2s ease-in-out; max-width: 300px; margin: 1.5rem auto; display: block;" />
+  <h3 id="cardName"></h3>
+  <p id="cardMeaning"></p>
+</section>
+<script>
+  window.onload = function() {
+    const image = document.getElementById("tarotImage");
+    setTimeout(() => {
+      image.style.opacity = 1;
+    }, 1000);
+  };
+</script>
+<script src="tarot.js"></script>
+
 </body>
 </html>
