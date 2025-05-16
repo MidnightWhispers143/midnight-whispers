@@ -7,15 +7,16 @@
   <title>Midnight Whispers</title>
   <style>
     body {
-      background-color: #0b0b0b;
-      color: #e0d6ff;
-      font-family: Georgia, serif;
       margin: 0;
+      font-family: Georgia, serif;
+      background: #000 url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0e0;
     }
 
     header {
-      background-color: #1b1b1b;
-      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,9 +33,45 @@
       text-shadow: 0 0 8px #d9b2ff;
     }
 
-    main {
-      padding: 4rem 2rem;
+    .hero {
       text-align: center;
+      padding: 5rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero img {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #f0e6ff;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #c9b4e3;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .about {
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      margin: 4rem auto;
+      border-radius: 10px;
+    }
+
+    .about h2 {
+      color: #f5d7ff;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
     }
   </style>
 </head>
@@ -44,17 +81,24 @@
   <h1 style="color:#e0d6ff;">Midnight Whispers</h1>
   <nav>
     <a href="#">Home</a>
-    <a href="#">About</a>
+    <a href="#about">About</a>
     <a href="#">Episodes</a>
     <a href="#">Tarot</a>
     <a href="meet-the-hosts.html">Meet the Hosts</a>
   </nav>
 </header>
 
-<main>
-  <h2>Welcome to the realm where whispers linger long after midnight...</h2>
-  <p>Click above to meet your hosts, Rose Petals and Raven Morningstar.</p>
-</main>
+<div class="hero">
+  <img src="logo.png" alt="Midnight Whispers Logo">
+  <h1>Stories that linger long after midnight...</h1>
+  <p>Ghost tales. Witchy folklore. Paranormal mysteries and whispers from the other side.</p>
+</div>
+
+<div class="about" id="about">
+  <h2>About Midnight Whispers</h2>
+  <p>In the shadow of midnight, when the world grows still and the veil between realms thins, you’ll hear them — whispers in the dark. Welcome to Midnight Whispers, a podcast where haunted tales, eerie encounters, and witchy folklore come alive. Hosted by Rose Petals and Raven Morningstar, your voices from the other side, each episode takes you deeper into the unknown, echoing with truth, myth, and mystery.</p>
+  <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.</p>
+</div>
 
 </body>
 </html>
