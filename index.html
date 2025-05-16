@@ -99,5 +99,51 @@
   <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.</p>
 </div>
 
+
+<section id="tarot" style="background-color:#0d0d0d; color:#f0e6ff; padding:4rem 2rem; text-align:center;">
+  <h2 style="font-size:2rem; margin-bottom:1rem;">Free Reading</h2>
+  <p>Take a dance with fate. Let the cards speak to you...</p>
+  <div id="tarotCard" style="margin-top:2rem; font-size:1.2rem;"></div>
+  <button onclick="drawCard()" style="margin-top:1rem; padding:0.5rem 1rem; background-color:#d9b2ff; border:none; color:#000; font-weight:bold; cursor:pointer;">Reveal Your Card</button>
+  <script>
+    const cards = [
+      "0 The Fool – New beginnings, optimism, trust in life",
+      "1 The Magician – Action, the power to manifest",
+      "2 The High Priestess – Inaction, going within, the mystical",
+      "3 The Empress – Abundance, nurturing, fertility, life in bloom!",
+      "4 The Emperor – Structure, stability, rules and power",
+      "5 The Hierophant – Institutions, tradition, society and its rules",
+      "6 The Lovers – Sexuality, passion, choice, uniting",
+      "7 The Chariot – Movement, progress, integration",
+      "8 Strength – Courage, subtle power, integration of animal self",
+      "9 The Hermit – Meditation, solitude, consciousness",
+      "10 Wheel of Fortune – Cycles, change, ups and downs",
+      "11 Justice – Fairness, equality, balance",
+      "12 The Hanged Man – Surrender, new perspective, enlightenment",
+      "13 Death – The end of something, change, letting go",
+      "14 Temperance – Balance, moderation, being sensible",
+      "15 The Devil – Destructive patterns, addiction, giving away your power",
+      "16 The Tower – Collapse of stable structures, release, sudden insight",
+      "17 The Star – Hope, calm, a good omen!",
+      "18 The Moon – Mystery, the subconscious, dreams",
+      "19 The Sun – Success, happiness, all will be well",
+      "20 Judgment – Rebirth, a new phase, inner calling",
+      "21 The World – Completion, wholeness, attainment, celebration of life"
+    ];
+    function drawCard() {
+      const random = Math.floor(Math.random() * cards.length);
+      document.getElementById("tarotCard").textContent = cards[random];
+    }
+  </script>
+</section>
+
+
+<section id="contact" style="background-color:#141414; color:#f0e6ff; padding:4rem 2rem; text-align:center;">
+  <h2 style="font-size:2rem; margin-bottom:1rem;">Contact</h2>
+  <p style="font-size:1.1rem;">Your whispers are safe with us…</p>
+  <p>Email: <a href="mailto:rose.midnightwhispers@gmail.com" style="color:#d9b2ff;">rose.midnightwhispers@gmail.com</a></p>
+  <p>Submissions: <a href="mailto:submissions.midnightwhisperspod@gmail.com" style="color:#d9b2ff;">submissions.midnightwhisperspod@gmail.com</a></p>
+</section>
+
 </body>
 </html>
