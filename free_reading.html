@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free Reading - Midnight Whispers</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #e6e6e6;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .tarot-img {
+      max-width: 300px;
+      margin: 1.5rem auto;
+      display: block;
+      cursor: pointer;
+      transition: transform 0.5s ease-in-out;
+    }
+    h2 {
+      color: #d4af37;
+    }
+    p, h3 {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>Free Reading</h2>
+  <p><em>Take a dance with fate, let the cards speak to you</em></p>
+  <img src="card.png" alt="Tarot Card" class="tarot-img" id="tarotImage"/>
+  <h3 id="cardName" style="display: none;"></h3>
+  <p id="cardMeaning" style="display: none;"></p>
+  <p><a href="index.html" style="color: #d4af37;">← Return to Home</a></p>
+  <script>
+    const cards = [{"name": "0 The Fool", "meaning": "New beginnings, optimism, trust in life"}, {"name": "1 The Magician", "meaning": "Action, the power to manifest"}, {"name": "2 The High Priestess", "meaning": "Inaction, going within, the mystical"}, {"name": "3 The Empress", "meaning": "Abundance, nurturing, fertility, life in bloom!"}, {"name": "4 The Emperor", "meaning": "Structure, stability, rules and power"}, {"name": "5 The Hierophant", "meaning": "Institutions, tradition, society and its rules"}, {"name": "6 The Lovers", "meaning": "Sexuality, passion, choice, uniting"}, {"name": "7 The Chariot", "meaning": "Movement, progress, integration"}, {"name": "8 Strength", "meaning": "Courage, subtle power, integration of animal self"}, {"name": "9 The Hermit", "meaning": "Meditation, solitude, consciousness"}, {"name": "10 Wheel of Fortune", "meaning": "Cycles, change, ups and downs"}, {"name": "11 Justice", "meaning": "Fairness, equality, balance"}, {"name": "12 The Hanged Man", "meaning": "Surrender, new perspective, enlightenment"}, {"name": "13 Death", "meaning": "The end of something, change, letting go"}, {"name": "14 Temperance", "meaning": "Balance, moderation, being sensible"}, {"name": "15 The Devil", "meaning": "Destructive patterns, addiction, giving away your power"}, {"name": "16 The Tower", "meaning": "Collapse of stable structures, release, sudden insight"}, {"name": "17 The Star", "meaning": "Hope, calm, a good omen!"}, {"name": "18 The Moon", "meaning": "Mystery, the subconscious, dreams"}, {"name": "19 The Sun", "meaning": "Success, happiness, all will be well"}, {"name": "20 Judgment", "meaning": "Rebirth, a new phase, inner calling"}, {"name": "21 The World", "meaning": "Completion, wholeness, attainment, celebration of life"}];
+    const card = cards[Math.floor(Math.random() * cards.length)];
+    const image = document.getElementById("tarotImage");
+    const name = document.getElementById("cardName");
+    const meaning = document.getElementById("cardMeaning");
+    image.addEventListener("click", () => {
+      image.style.transform = "rotateY(180deg)";
+      name.textContent = card.name;
+      meaning.textContent = card.meaning;
+      name.style.display = "block";
+      meaning.style.display = "block";
+    });
+  </script>
+</body>
+</html>
