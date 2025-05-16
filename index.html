@@ -9,101 +9,175 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-image: url('midnight_whispers_bg.jpg');
+      background: url('midnight_whispers_bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      
       color: #e6e6e6;
     }
-    header {
-      background-color: rgba(0,0,0,0.7);
-      padding: 2rem;
+    .fog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      
+      width: 100%;
+      background: url('https://cdn.pixabay.com/photo/2020/04/26/12/20/fog-5092400_960_720.png') repeat;
+      opacity: 0.2;
+      z-index: 1;
+      pointer-events: none;
+      animation: drift 90s linear infinite;
+      background-size: cover;
+    }
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: 2000px 0; }
+    }
+    .content {
+      position: relative;
+      z-index: 2;
       text-align: center;
+      padding: 4rem 1rem 2rem;
     }
-    header img {
-      max-width: 200px;
+    .content img {
+      max-width: 220px;
+      border-radius: 12px;
     }
-    nav {
+    .content h1 {
+      color: #d4af37;
+      font-size: 3em;
+      margin: 1rem 0 0.5rem;
+    }
+    .content p.tagline {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+    section {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      border-radius: 10px;
+    }
+    section h2 {
+      color: #d4af37;
+      font-size: 2em;
+      margin-bottom: 1rem;
+    }
+    section p {
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .contact {
       text-align: center;
       margin-top: 1rem;
     }
-    nav a {
+    .contact p {
+      margin: 0.5rem 0;
+      font-size: 1em;
+      color: #bbb;
+    }
+    .contact a {
       color: #d4af37;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
     }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-      background-color: rgba(0, 0, 0, 0.8);
-      border-radius: 10px;
-    }
-    h1, h2 {
-      color: #d4af37;
-    }
-    footer {
-      background-color: #1a1a1a;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #888;
+    audio {
+      display: none;
     }
   </style>
+
+<style>
+@keyframes shimmer {
+  0% { background-position: -500px 0; }
+  100% { background-position: 500px 0; }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 1.5s ease-in-out;
+}
+</style>
+
+
+
+
+
+<style>
+  body {
+    cursor: url('cursor.png') 16 16, auto;
+  }
+</style>
+
 </head>
 <body>
-  <header>
+
+<header style="background-color: rgba(0,0,0,0.7); padding: 1rem; text-align: center;">
+  <a href="free_reading.html" style="margin-right: 2rem; color: #d4af37; text-decoration: none; font-weight: bold;">Tarot</a>
+  <a href="contact.html" style="color: #d4af37; text-decoration: none; font-weight: bold;">Contact</a>
+</header>
+
+
+<audio id="bgAudio" loop>
+  <source src="woods.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const bgAudio = document.getElementById('bgAudio');
+    document.body.addEventListener('click', function () {
+      if (bgAudio.paused) {
+        bgAudio.play().catch(err => console.log('Playback error:', err));
+      }
+    }, { once: true });
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const audio = document.getElementById("bgAudio");
+    setTimeout(() => {
+      audio.play().catch(e => console.log("Audio play blocked"));
+    }, 1000);
+  });
+</script>
+
+  
+
+
+  <div class="fog"></div>
+  <div class="content" style="background-color: rgba(0, 0, 0, 0.7); padding: 2rem; border-radius: 10px; max-width: 700px; margin: 2rem auto;">
     <img src="logo.png" alt="Midnight Whispers Logo">
     <h1>Midnight Whispers</h1>
-    <p><em>Ghost stories, paranormal encounters, and whispers from the veil...</em></p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#host">Meet the Host</a>
-      <a href="#episodes">Episodes</a>
-      <a href="#submit">Submit Your Story</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <p class="tagline">Stories that linger long after midnight...</p>
+  </div>
 
-  <section id="about">
-    <h2>About Midnight Whispers</h2>
-    <p>In the shadow of midnight, when the world grows still and the veil between realms thins, you’ll hear them — whispers in the dark. Welcome to Midnight Whispers, a podcast where haunted tales, eerie encounters, and witchy folklore come alive. Hosted by Rose Petals and Raven Morningstar, your voices from the other side, each episode takes you deeper into the unknown, echoing with truth, myth, and mystery.</p>
-    <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.</p>
+  <section>
+    
+
+<h2>About Midnight Whispers</h2>
+<p>In the shadow of midnight, when the world grows still and the veil between realms thins, you’ll hear them — whispers in the dark. Welcome to Midnight Whispers, a podcast where haunted tales, eerie encounters, and witchy folklore come alive. Hosted by Rose Petals and Raven Morningstar, your voices from the other side, each episode takes you deeper into the unknown, echoing with truth, myth, and mystery.</p>
+<p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.
+</p>
+
+
+    <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.
+</p>
   </section>
 
-  <section id="host">
-    <h2>Meet the Hosts</h2>
-    <p><strong>Rose Petals</strong> is the flame that flickers in the dark. A spellcaster of stories and seer of secrets, she’s the voice that draws you in with each whisper. With fiery red hair and piercing blue eyes, Rose brings her own blend of witchcraft, personal experience, and ghostly folklore to every episode.</p>
-    <p><strong>Raven Morningstar</strong> is the moonlight behind the mist. Calm, mysterious, and endlessly curious, Raven’s voice floats like smoke through the stories she tells. She’s a tarot reader, a dreamwalker, and a collector of forgotten myths.</p>
-  </section>
+  
 
-  <section id="episodes">
-    <h2>Latest Episodes</h2>
-    <ul>
-      <li><strong>Episode 14:</strong> The Girl in the Attic</li>
-      <li><strong>Episode 13:</strong> Whispers Beneath the Floorboards</li>
-      <li><strong>Episode 12:</strong> The Witch’s Mirror</li>
-    </ul>
-  </section>
 
-  <section id="submit">
-    <h2>Send Us Your Story</h2>
-    <p>Have you experienced something strange, unexplained, or downright terrifying? Submit your true ghost story, urban legend, or witchy tale below. If it chills our spine—it might just be featured on the next episode.</p>
-    <p>Email: <a href="mailto:submissions@midnightwhisperspod.com">submissions@midnightwhisperspod.com</a></p>
-  </section>
 
-  <section id="contact">
-    <h2>Contact & Socials</h2>
-    <ul>
-      <li>Instagram: @midnightwhisperspod</li>
-      <li>Twitter/X: @midnight_pod</li>
-      <li>Email: <a href="mailto:rose@midnightwhisperspod.com">rose@midnightwhisperspod.com</a></li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Midnight Whispers | Created by Rose Petals</p>
-  </footer>
 </body>
 </html>
