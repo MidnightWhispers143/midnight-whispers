@@ -2,148 +2,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Midnight Whispers</title>
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: #000 url('background.jpg') no-repeat center center fixed;
+      font-family: 'Georgia', serif;
+      background: url('midnight_whispers_bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #e0e0e0;
+      
+      color: #e6e6e6;
     }
-
-    header {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .fog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      
+      width: 100%;
+      background: url('https://cdn.pixabay.com/photo/2020/04/26/12/20/fog-5092400_960_720.png') repeat;
+      opacity: 0.2;
+      z-index: 1;
+      pointer-events: none;
+      animation: drift 90s linear infinite;
+      background-size: cover;
     }
-
-    nav a {
-      color: #d9b2ff;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: bold;
+    @keyframes drift {
+      from { background-position: 0 0; }
+      to { background-position: 2000px 0; }
     }
-
-    nav a:hover {
-      text-shadow: 0 0 8px #d9b2ff;
-    }
-
-    .hero {
+    .content {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 5rem 2rem;
-      background: rgba(0, 0, 0, 0.6);
+      padding: 4rem 1rem 2rem;
     }
-
-    .hero img {
-      width: 150px;
-      margin-bottom: 1rem;
+    .content img {
+      max-width: 220px;
+      border-radius: 12px;
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: #f0e6ff;
+    .content h1 {
+      color: #d4af37;
+      font-size: 3em;
+      margin: 1rem 0 0.5rem;
     }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #c9b4e3;
-      max-width: 700px;
-      margin: auto;
+    .content p.tagline {
+      font-style: italic;
+      font-size: 1.2em;
+      color: #ccc;
+      margin-bottom: 2rem;
     }
-
-    .about {
-      max-width: 800px;
-      background: rgba(0, 0, 0, 0.7);
+    section {
+      background-color: rgba(0, 0, 0, 0.65);
       padding: 2rem;
-      margin: 4rem auto;
+      max-width: 800px;
+      margin: 0 auto 2rem;
       border-radius: 10px;
     }
-
-    .about h2 {
-      color: #f5d7ff;
+    section h2 {
+      color: #d4af37;
+      font-size: 2em;
+      margin-bottom: 1rem;
     }
-
-    .about p {
-      font-size: 1.1rem;
+    section p {
       line-height: 1.6;
       color: #ddd;
     }
+    .contact {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .contact p {
+      margin: 0.5rem 0;
+      font-size: 1em;
+      color: #bbb;
+    }
+    .contact a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    audio {
+      display: none;
+    }
   </style>
+
+<style>
+@keyframes shimmer {
+  0% { background-position: -500px 0; }
+  100% { background-position: 500px 0; }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,0) 100%);
+  animation: shimmer 1.5s ease-in-out;
+}
+</style>
+
 </head>
 <body>
 
-<header>
-  <h1 style="color:#e0d6ff;">Midnight Whispers</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="meet-the-hosts.html">Meet the Hosts</a>
-    <a href="#">Tarot</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <img src="logo.png" alt="Midnight Whispers Logo">
-  <h1>Stories that linger long after midnight...</h1>
-  <p>Ghost tales. Witchy folklore. Paranormal mysteries and whispers from the other side.</p>
-</div>
-
-<div class="about" id="about">
-  <h2>About Midnight Whispers</h2>
-  <p>In the shadow of midnight, when the world grows still and the veil between realms thins, you’ll hear them — whispers in the dark. Welcome to Midnight Whispers, a podcast where haunted tales, eerie encounters, and witchy folklore come alive. Hosted by Rose Petals and Raven Morningstar, your voices from the other side, each episode takes you deeper into the unknown, echoing with truth, myth, and mystery.</p>
-  <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.</p>
-</div>
+<audio id="bgAudio" loop>
+  <source src="woods.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const bgAudio = document.getElementById('bgAudio');
+    document.body.addEventListener('click', function () {
+      if (bgAudio.paused) {
+        bgAudio.play().catch(err => console.log('Playback error:', err));
+      }
+    }, { once: true });
+  });
+</script>
 
 
-<section id="tarot" style="background-color:#0d0d0d; color:#f0e6ff; padding:4rem 2rem; text-align:center;">
-  <h2 style="font-size:2rem; margin-bottom:1rem;">Free Reading</h2>
-  <p>Take a dance with fate. Let the cards speak to you...</p>
-  <div id="tarotCard" style="margin-top:2rem; font-size:1.2rem;"></div>
-  <button onclick="drawCard()" style="margin-top:1rem; padding:0.5rem 1rem; background-color:#d9b2ff; border:none; color:#000; font-weight:bold; cursor:pointer;">Reveal Your Card</button>
-  <script>
-    const cards = [
-      "0 The Fool – New beginnings, optimism, trust in life",
-      "1 The Magician – Action, the power to manifest",
-      "2 The High Priestess – Inaction, going within, the mystical",
-      "3 The Empress – Abundance, nurturing, fertility, life in bloom!",
-      "4 The Emperor – Structure, stability, rules and power",
-      "5 The Hierophant – Institutions, tradition, society and its rules",
-      "6 The Lovers – Sexuality, passion, choice, uniting",
-      "7 The Chariot – Movement, progress, integration",
-      "8 Strength – Courage, subtle power, integration of animal self",
-      "9 The Hermit – Meditation, solitude, consciousness",
-      "10 Wheel of Fortune – Cycles, change, ups and downs",
-      "11 Justice – Fairness, equality, balance",
-      "12 The Hanged Man – Surrender, new perspective, enlightenment",
-      "13 Death – The end of something, change, letting go",
-      "14 Temperance – Balance, moderation, being sensible",
-      "15 The Devil – Destructive patterns, addiction, giving away your power",
-      "16 The Tower – Collapse of stable structures, release, sudden insight",
-      "17 The Star – Hope, calm, a good omen!",
-      "18 The Moon – Mystery, the subconscious, dreams",
-      "19 The Sun – Success, happiness, all will be well",
-      "20 Judgment – Rebirth, a new phase, inner calling",
-      "21 The World – Completion, wholeness, attainment, celebration of life"
-    ];
-    function drawCard() {
-      const random = Math.floor(Math.random() * cards.length);
-      document.getElementById("tarotCard").textContent = cards[random];
-    }
-  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const audio = document.getElementById("bgAudio");
+    setTimeout(() => {
+      audio.play().catch(e => console.log("Audio play blocked"));
+    }, 1000);
+  });
+</script>
+
+  
+
+
+  <div class="fog"></div>
+  <div class="content">
+    <img src="logo.png" alt="Midnight Whispers Logo">
+    <h1>Midnight Whispers</h1>
+    <p class="tagline">Stories that linger long after midnight...</p>
+  </div>
+
+  <section>
+    <h2>About Midnight Whispers</h2>
+    <p>In the shadow of midnight, when the world grows still and the veil between realms thins, you’ll hear them — whispers in the dark. Welcome to <strong>Midnight Whispers</strong>, a podcast where haunted tales, eerie encounters, and witchy folklore come alive. Hosted by <em>Rose Petals</em>, your voice from the other side, each episode takes you deeper into the unknown, echoing with truth, myth, and mystery.</p>
+    <p>Light a candle, draw the curtains, and listen closely. Some stories stay with you… long after the final whisper fades.</p>
+  </section>
+
+  <div class="contact">
+    <p>Contact: <a href="mailto:rose.midnightwhispers@gmail.com">rose.midnightwhispers@gmail.com</a></p>
+    <p>Submit Your Story: <a href="mailto:submissions.midnightwhisperspod@gmail.com">submissions.midnightwhisperspod@gmail.com</a></p>
+  </div>
+
+<section class="tarot" style="margin-top: 4rem;">
+  <h2 style="color:#d4af37;">Free Reading</h2>
+  <p style="font-style: italic; color: #ccc;">Take a dance with fate, let the cards speak to you</p>
+  <img src="card.png" alt="Tarot Card" class="tarot-img" id="tarotImage"
+       style="cursor: pointer; max-width: 300px; margin: 1.5rem auto; display: block; transition: transform 0.5s ease-in-out;" />
+  <h3 id="cardName" style="display: none;"></h3>
+  <p id="cardMeaning" style="display: none;"></p>
 </section>
+<script>
+  const cards = [{"name": "0 The Fool", "meaning": "New beginnings, optimism, trust in life"}, {"name": "1 The Magician", "meaning": "Action, the power to manifest"}, {"name": "2 The High Priestess", "meaning": "Inaction, going within, the mystical"}, {"name": "3 The Empress", "meaning": "Abundance, nurturing, fertility, life in bloom!"}, {"name": "4 The Emperor", "meaning": "Structure, stability, rules and power"}, {"name": "5 The Hierophant", "meaning": "Institutions, tradition, society and its rules"}, {"name": "6 The Lovers", "meaning": "Sexuality, passion, choice, uniting"}, {"name": "7 The Chariot", "meaning": "Movement, progress, integration"}, {"name": "8 Strength", "meaning": "Courage, subtle power, integration of animal self"}, {"name": "9 The Hermit", "meaning": "Meditation, solitude, consciousness"}, {"name": "10 Wheel of Fortune", "meaning": "Cycles, change, ups and downs"}, {"name": "11 Justice", "meaning": "Fairness, equality, balance"}, {"name": "12 The Hanged Man", "meaning": "Surrender, new perspective, enlightenment"}, {"name": "13 Death", "meaning": "The end of something, change, letting go"}, {"name": "14 Temperance", "meaning": "Balance, moderation, being sensible"}, {"name": "15 The Devil", "meaning": "Destructive patterns, addiction, giving away your power"}, {"name": "16 The Tower", "meaning": "Collapse of stable structures, release, sudden insight"}, {"name": "17 The Star", "meaning": "Hope, calm, a good omen!"}, {"name": "18 The Moon", "meaning": "Mystery, the subconscious, dreams"}, {"name": "19 The Sun", "meaning": "Success, happiness, all will be well"}, {"name": "20 Judgment", "meaning": "Rebirth, a new phase, inner calling"}, {"name": "21 The World", "meaning": "Completion, wholeness, attainment, celebration of life"}];
+  const card = cards[Math.floor(Math.random() * cards.length)];
+  const image = document.getElementById("tarotImage");
+  const name = document.getElementById("cardName");
+  const meaning = document.getElementById("cardMeaning");
 
-
-<section id="contact" style="background-color:#141414; color:#f0e6ff; padding:4rem 2rem; text-align:center;">
-  <h2 style="font-size:2rem; margin-bottom:1rem;">Contact</h2>
-  <p style="font-size:1.1rem;">Your whispers are safe with us…</p>
-  <p>Email: <a href="mailto:rose.midnightwhispers@gmail.com" style="color:#d9b2ff;">rose.midnightwhispers@gmail.com</a></p>
-  <p>Submissions: <a href="mailto:submissions.midnightwhisperspod@gmail.com" style="color:#d9b2ff;">submissions.midnightwhisperspod@gmail.com</a></p>
-</section>
+  image.addEventListener("click", () => {
+    image.classList.add('shimmer');
+    image.style.transform = "rotateY(180deg)";
+    name.textContent = card.name;
+    meaning.textContent = card.meaning;
+    name.style.display = "block";
+    meaning.style.display = "block";
+  });
+</script>
 
 </body>
 </html>
